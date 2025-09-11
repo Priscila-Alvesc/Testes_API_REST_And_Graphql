@@ -1,0 +1,119 @@
+{
+  "stats": {
+    "suites": 2,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-09-11T01:50:59.412Z",
+    "end": "2025-09-11T01:50:59.526Z",
+    "duration": 114,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "ff1134d0-a3ec-466a-bfd8-c7eb2f8c11ab",
+      "title": "",
+      "fullFile": "C:\\Users\\alves\\Desktop\\Testes_API_REST_And_Graphql\\test\\rest\\controller\\registerController.test.js",
+      "file": "\\test\\rest\\controller\\registerController.test.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "ff1ca2b6-cae8-452d-a1d2-d722b56cdf3f",
+          "title": "Login Controller",
+          "fullFile": "C:\\Users\\alves\\Desktop\\Testes_API_REST_And_Graphql\\test\\rest\\controller\\registerController.test.js",
+          "file": "\\test\\rest\\controller\\registerController.test.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "d38583f0-e1f8-4869-8b87-2580272038c6",
+              "title": "POST /register",
+              "fullFile": "C:\\Users\\alves\\Desktop\\Testes_API_REST_And_Graphql\\test\\rest\\controller\\registerController.test.js",
+              "file": "\\test\\rest\\controller\\registerController.test.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Quando solicito o cadastro de um usuario existente, devo receber erro 400",
+                  "fullTitle": "Login Controller POST /register Quando solicito o cadastro de um usuario existente, devo receber erro 400",
+                  "timedOut": false,
+                  "duration": 85,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const resposta = await request (app)\n.post('/api/users/register')\n.send({\n      \"name\": \"Alice\",\n      \"email\": \"alice@email.com\",\n      \"password\": \"123456\"\n    });\nexpect(resposta.status).to.be.equal(400);\nexpect(resposta.body).to.have.property('error', 'Email já cadastrado');",
+                  "err": {},
+                  "uuid": "41bf4186-4043-448e-829c-3589ae4ed311",
+                  "parentUUID": "d38583f0-e1f8-4869-8b87-2580272038c6",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "41bf4186-4043-448e-829c-3589ae4ed311"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 85,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "11.7.2"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.2.0"
+    }
+  }
+}

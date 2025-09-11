@@ -1,0 +1,39 @@
+{
+  "name": "y",
+  "version": "1.0.0",
+  "description": "Se você é aluno da Pós-Graduação em Automação de Testes de Software (Turma 2), faça um fork desse repositório e boa sorte em seu trabalho de conclusão da disciplina.",
+  "keywords": [],
+  "homepage": "https://github.com/juliodelimas/pgats-2025-02-base#readme",
+  "bugs": {
+    "url": "https://github.com/juliodelimas/pgats-2025-02-base/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juliodelimas/pgats-2025-02-base.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha \"test/**/*.test.js\" --reporter mochawesome",
+    "test-rest-controller": "mocha \"test/rest/controller/**/*.test.js\" --reporter mochawesome"
+  },
+  "dependencies": {
+    "apollo-server-express": "^3.13.0",
+    "express": "^4.21.2",
+    "graphql": "^16.11.0",
+    "jsonwebtoken": "^9.0.2",
+    "swagger-ui-express": "^5.0.1"
+  },
+  "devDependencies": {
+    "chai": "^4.5.0",
+    "mocha": "^11.7.2",
+    "mochawesome": "^7.1.3",
+    "sinon": "^21.0.0",
+    "supertest": "^7.1.4"
+  }
+}
