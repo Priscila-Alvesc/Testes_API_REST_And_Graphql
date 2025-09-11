@@ -26,4 +26,4 @@ jobs:
       run: npm run test-rest-controller
 
     - name: Subir a API Rest 
-      run: npm run start-rest &
+      run: npm start &
