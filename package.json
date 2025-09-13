@@ -1,16 +1,8 @@
 {
-  "name": "y",
+  "name": "Projeto de estudps API",
   "version": "1.0.0",
-  "description": "Se você é aluno da Pós-Graduação em Automação de Testes de Software (Turma 2), faça um fork desse repositório e boa sorte em seu trabalho de conclusão da disciplina.",
+  "description": "Pós-Graduação em Automação de Testes de Software",
   "keywords": [],
-  "homepage": "https://github.com/juliodelimas/pgats-2025-02-base#readme",
-  "bugs": {
-    "url": "https://github.com/juliodelimas/pgats-2025-02-base/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/juliodelimas/pgats-2025-02-base.git"
-  },
   "license": "ISC",
   "author": "",
   "type": "commonjs",
@@ -26,6 +18,7 @@
   },
   "dependencies": {
     "apollo-server-express": "^3.13.0",
+    "dotenv": "^17.2.2",
     "express": "^4.21.2",
     "graphql": "^16.11.0",
     "jsonwebtoken": "^9.0.2",

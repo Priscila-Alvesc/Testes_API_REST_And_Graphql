@@ -1,0 +1,20 @@
+{
+  "items": [
+    {
+      "productId": 1,
+      "quantity": 5
+    },
+    {
+      "productId": 2,
+      "quantity": 1
+    }
+  ],
+  "freight": 0,
+  "paymentMethod": "credit_card",
+  "cardData": {
+    "number": "5443254756576903",
+    "name": "Jose Santos",
+    "expiry": "13/07/2027",
+    "cvv": "657"
+  }
+}
