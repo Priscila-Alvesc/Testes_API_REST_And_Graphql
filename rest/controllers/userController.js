@@ -1,10 +1,14 @@
 const userService = require('../../src/services/userService');
 
 exports.register = (req, res) => {
-  const { name, email, password } = req.body;
-  const user = userService.registerUser(name, email, password);
-  if (!user) return res.status(400).json({ error: 'Email já cadastrado' });
-  res.status(201).json({ user });
+  try {
+    const { name, email, password } = req.body;
+    const user = userService.registerUser(name, email, password);
+    if (!user) return res.status(400).json({ error: 'Email já cadastrado' });
+    res.status(201).json(user);
+  } catch (err) {
+    res.status(500).json({ error: err.message || 'Erro interno do servidor' });
+  }
 };
 
 exports.login = (req, res) => {

@@ -21,6 +21,7 @@
   "scripts": {
     "test": "mocha \"test/**/*.test.js\" --reporter mochawesome",
     "test-rest-controller": "mocha \"test/rest/controller/**/*.test.js\" --reporter mochawesome",
+    "test-rest-external": "mocha \"test/rest/external/**/*.test.js\" --reporter mochawesome",
     "start": "node rest/server.js"
   },
   "dependencies": {
