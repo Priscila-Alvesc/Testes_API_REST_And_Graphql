@@ -48,5 +48,40 @@ describe('checkout', () => {
             });
      
         });
+
+        it('deve fazer checkout com cartão', async function() {
+            const resposta = await request("http://localhost:3000")
+                .post('/api/checkout')
+                .set('Authorization', `Bearer ${token}`)
+                .send({
+                    "items": [
+                        {
+                            "productId": 1,
+                            "quantity": 5
+                        },
+                                                {
+                            "productId": 2,
+                            "quantity": 1
+                        }
+                    ],
+                    "freight": 0,
+                    "paymentMethod": "credit_card",
+                    "cardData": {
+                        "number": "5443254756576903",
+                        "name": "Jose Santos",
+                        "expiry": "13/07/2027",
+                        "cvv": "657"
+                    }
+                });
+
+            expect(resposta.status).to.equal(200);
+            expect(resposta.body).to.have.property('valorFinal', 665);                 
+            expect(resposta.body).to.have.property('paymentMethod', 'credit_card');
+
+            resposta.body.items.forEach(item => {
+                expect(item).to.have.property('productId');
+            });
+     
+        });
     });
 });
