@@ -1,0 +1,32 @@
+[
+  {
+    "nomeDoteste": "Produto não encontrado",
+    "postCheckout": {
+      "items": [
+        { "productId": 3, "quantity": 1 }
+      ],
+      "freight": 0,
+      "paymentMethod": "boleto",
+      "cardData": {
+        "number": "string",
+        "name": "string",
+        "expiry": "string",
+        "cvv": "string"
+      }
+    },
+    "statusCode": 400,
+    "mensagemEsperada": "Produto não encontrado"
+  },
+  {
+    "nomeDoteste": "Dados do cartão obrigatórios para pagamento com cartão",
+    "postCheckout": {
+      "items": [
+        { "productId": 1, "quantity": 1 }
+      ],
+      "freight": 0,
+      "paymentMethod": "credit_card"
+    },
+    "statusCode": 400,
+    "mensagemEsperada": "Dados do cartão obrigatórios para pagamento com cartão"
+  }
+]
