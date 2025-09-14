@@ -11,11 +11,12 @@
     "test": "test"
   },
   "scripts": {
-    "test": "mocha \"test/**/*.test.js\" --reporter mochawesome",
-    "test-rest-controller": "mocha \"test/rest/controller/**/*.test.js\" --reporter mochawesome",
-    "test-rest-external": "mocha \"test/rest/external/**/*.test.js\" --reporter mochawesome",
-    "start": "node rest/server.js"
-  },
+  "test": "mocha \"test/**/*.test.js\" --reporter mochawesome",
+  "test-rest-controller": "mocha \"test/rest/controller/**/*.test.js\" --reporter mochawesome",
+  "test-rest-external": "mocha \"test/rest/external/**/*.test.js\" --reporter mochawesome",
+  "start": "node rest/server.js",
+  "start-rest": "node rest/server.js"
+  },    
   "dependencies": {
     "apollo-server-express": "^3.13.0",
     "dotenv": "^17.2.2",
