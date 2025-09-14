@@ -1,0 +1,8 @@
+{
+  "valorFinal": 665,
+  "paymentMethod": "credit_card",
+  "items": [
+    { "productId": 1, "quantity": 5 },
+    { "productId": 2, "quantity": 1 }
+  ]
+}

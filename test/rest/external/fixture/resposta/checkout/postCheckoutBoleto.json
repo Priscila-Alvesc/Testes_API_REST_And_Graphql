@@ -1,4 +1,6 @@
 {
+  "valorFinal": 400,
+  "userId": 2,
   "items": [
     {
       "productId": 1,
@@ -11,10 +13,5 @@
   ],
   "freight": 0,
   "paymentMethod": "Boleto",
-  "cardData": {
-    "number": "string",
-    "name": "string",
-    "expiry": "string",
-    "cvv": "string"
-  }
+  "total": 400
 }

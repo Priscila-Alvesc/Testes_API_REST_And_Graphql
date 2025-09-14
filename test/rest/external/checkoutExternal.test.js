@@ -6,7 +6,7 @@ require('dotenv').config();
 describe('checkout', () => {
     describe('POST /api/checkout', () => {
         before(async function() {
-            const postUserLogin = require('../../fixture/requisicao/login/postUserLogin.json');
+            const postUserLogin = require('./fixture/requisicao/login/postUserLogin.json');
             
             const respostaLogin = await request(process.env.BASE_URL_REST)
                 .post('/api/users/login')
@@ -15,8 +15,9 @@ describe('checkout', () => {
             token = respostaLogin.body.token;
         });
 
-        it('deve fazer checkout com boleto', async function() {
+        it('Deve fazer checkout com Boleto', async function() {
             const postCheckoutBoleto = require('./fixture/requisicao/checkout/postCheckoutBoleto.json');
+            const respostaEsperada =require('./fixture/resposta/checkout/postCheckoutBoleto.json');
 
             const resposta = await request(process.env.BASE_URL_REST)
                 .post('/api/checkout')
@@ -24,17 +25,13 @@ describe('checkout', () => {
                 .send(postCheckoutBoleto);
 
             expect(resposta.status).to.equal(200);
-            expect(resposta.body).to.have.property('valorFinal', 400);                 
-            expect(resposta.body).to.have.property('paymentMethod', 'boleto');
-
-            resposta.body.items.forEach(item => {
-                expect(item).to.have.property('productId');
-            });
+            expect(resposta.body).to.deep.include(respostaEsperada);
      
         });
 
         it('deve fazer checkout com cartão', async function() {
             const postCheckoutCartaoCredito = require('./fixture/requisicao/checkout/postCheckoutCartaoCredito.json');
+            const respostaEsperada = require('./fixture/resposta/checkout/postCheckoutCartaoCredito.json');
 
             const resposta = await request(process.env.BASE_URL_REST)
                 .post('/api/checkout')
@@ -42,13 +39,20 @@ describe('checkout', () => {
                 .send(postCheckoutCartaoCredito);
 
             expect(resposta.status).to.equal(200);
-            expect(resposta.body).to.have.property('valorFinal', 665);                 
-            expect(resposta.body).to.have.property('paymentMethod', 'credit_card');
+            expect(resposta.body).to.deep.include(respostaEsperada);
+        });
 
-            resposta.body.items.forEach(item => {
-                expect(item).to.have.property('productId');
+        const testeDeErrosDeNegocio = require('./fixture/requisicao/checkout/checkoutComErros.json');
+        testeDeErrosDeNegocio.forEach(teste => {
+            it(teste.nomeDoteste, async function() {
+                const resposta = await request(process.env.BASE_URL_REST)
+                    .post('/api/checkout')
+                    .set('Authorization', `Bearer ${token}`)
+                    .send(teste.postCheckout);
+
+                expect(resposta.status).to.equal(teste.statusCode);
+                expect(resposta.body).to.have.property('error', teste.mensagemEsperada);
             });
-     
         });
     });
 });
